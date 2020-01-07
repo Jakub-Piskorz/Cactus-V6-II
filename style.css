@@ -50,3 +50,14 @@ nav {
     font-weight: bold;
     border: 0px;
 }
+
+#test-cont {
+    width: 900px;
+    height: 700px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url("./img/smoke.jpg");
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: darken;
+}

@@ -37,12 +37,13 @@
     }
     
     .btn {
+        all: unset;
         border: solid black 2px;
-        background-color: white;
         font-size: 21px;
         font-weight: bold;
         padding: 15px 33px;
         border-radius: 40px;
+        transition: 0.13s ease-in-out;
     }
     
     .sqr-btn {
@@ -55,6 +56,7 @@
         margin-right: 10px;
         color: white;
         display: inline-block;
+        transition: 0.3s ease-in-out;
     }
     
     .purple {
@@ -75,6 +77,11 @@
         background: linear-gradient(350deg, #8040f2 10%, #b05ee4 90%);
         color: white;
         border: 0px;
+        transition: 0.3s;
+    }
+    
+    #btn-purple:hover {
+        background: linear-gradient(350deg, #9965f4 10%, #b47be9 90%);
     }
     
     #btn-red {
@@ -87,12 +94,16 @@
         border: 0px;
     }
     
+    .btn:hover {
+        background-color: rgba(200, 200, 200, 0.5) !important;
+    }
+    
     #test-cont {
         width: 900px;
         height: 700px;
         display: flex;
         background-color: rgba(0, 0, 0, 0.7);
-        background-image: url("./img/smoke.jpg");
+        background-image: url("img/smoke.jpg");
         background-position: center;
         background-size: cover;
         background-blend-mode: darken;

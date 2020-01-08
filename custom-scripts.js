@@ -17,7 +17,7 @@
         slide(currentSection, forced);
     }
 
-    slideInProgress = false;
+    let slideInProgress = false;
     let sections = document.querySelectorAll(".section");
     let sectionLocations = [];
     let currentSection = 0;
@@ -25,6 +25,7 @@
     document.querySelector("#btn-purple").addEventListener("click", function() { slide(1) });
     document.querySelector(".back").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
     window.addEventListener("wheel", slideOnScroll);
+    window.addEventListener("touchmove", slideOnScroll);
     window.onresize = function() { updateLocations(true) };
     updateLocations();
 

@@ -1,84 +1,116 @@
-body {
-    margin: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    background-color: white;
-    overflow: hidden;
-    font-family: Tahoma;
-    transition: 0.7s ease;
-}
-
-nav {
-    display: inline-flex;
-    position: absolute;
-    height: 100%;
-    width: 200px;
-    left: 0;
-    background-color: grey;
-    margin-left: -200px;
-}
-
-.section {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-}
-
-#container {
-    transition: ease-in-out 0.7s;
-}
-
-.btn {
-    padding: 10px 28px;
-    border: solid black 2px;
-    border-radius: 40px;
-    background-color: white;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-#btn-purple {
-    padding: 10px 28px;
-    border-radius: 40px;
-    background: rgb(120, 59, 245);
-    background: linear-gradient(342deg, rgba(120, 59, 245, 1) 0%, rgba(173, 101, 225, 1) 100%);
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    border: 0px;
-}
-
-#btn-red {
-    padding: 10px 28px;
-    border-radius: 40px;
-    background-color: #d7000f;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    border: 0px;
-}
-
-#test-cont {
-    width: 900px;
-    height: 700px;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-image: url("./img/smoke.jpg");
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: darken;
-}
-
-.big-font {
-    font-size: 47px;
-}
-
-@media screen and (max-width: 700px) {
-    .big-font {
-        font-size: 30px;
+    body {
+        margin: 0;
+        box-sizing: border-box;
+        background-color: white;
+        font-family: Tahoma;
+        height: 100vh;
     }
-}
+    
+    #container {
+        transition: 0.7s ease-in-out;
+        display: inline-block;
+    }
+    
+    #main {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    nav {
+        display: inline-flex;
+        position: absolute;
+        height: 100%;
+        width: 200px;
+        left: 0;
+        background-color: grey;
+        margin-left: -200px;
+    }
+    
+    .section {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .btn {
+        border: solid black 2px;
+        background-color: white;
+        font-size: 21px;
+        font-weight: bold;
+        padding: 15px 33px;
+        border-radius: 40px;
+    }
+    
+    .sqr-btn {
+        background-color: black;
+        font-size: 19px;
+        font-weight: bold;
+        text-align: center;
+        padding: 15px 0;
+        width: 120px;
+        margin-right: 10px;
+        color: white;
+        display: inline-block;
+    }
+    
+    .purple {
+        background: rgb(120, 59, 245);
+        background: linear-gradient(342deg, rgba(120, 59, 245, 1) 10%, rgba(173, 101, 225, 1) 100%);
+    }
+    
+    .light-purple {
+        background: rgb(120, 59, 245);
+        background: linear-gradient(-20deg, #9865fe 0%, #c377f3 100%);
+    }
+    
+    .ignore {
+        position: absolute;
+    }
+    
+    #btn-purple {
+        background: linear-gradient(350deg, #8040f2 10%, #b05ee4 90%);
+        color: white;
+        border: 0px;
+    }
+    
+    #btn-red {
+        padding: 10px 28px;
+        border-radius: 40px;
+        background-color: #d7000f;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        border: 0px;
+    }
+    
+    #test-cont {
+        width: 900px;
+        height: 700px;
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.7);
+        background-image: url("./img/smoke.jpg");
+        background-position: center;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+    
+    .big-font {
+        font-size: 50px;
+    }
+    
+    .bigger-font {
+        font-size: 85px;
+        font-weight: bolder;
+        letter-spacing: -0.05em;
+        margin-bottom: 0;
+    }
+    
+    @media screen and (max-width: 800px) {
+        .big-font {
+            font-size: 30px;
+        }
+    }

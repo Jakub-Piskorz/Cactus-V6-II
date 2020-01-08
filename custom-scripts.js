@@ -3,7 +3,7 @@
             document.querySelector("#container").style.marginTop = `-${sectionHeights[section]}px`;
             currentSection = section;
             slideInProgress = true;
-            setTimeout(function() { slideInProgress = false }, 1100);
+            setTimeout(function() { slideInProgress = false }, 900);
         }
     }
     const slideOnScroll = scrollEvent => {

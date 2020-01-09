@@ -1,3 +1,7 @@
+    * {
+        box-sizing: border-box;
+    }
+    
     body {
         margin: 0;
         box-sizing: border-box;
@@ -44,6 +48,8 @@
         padding: 15px 33px;
         border-radius: 40px;
         transition: 0.13s ease-in-out;
+        display: inline-block;
+        margin-bottom: 10px;
     }
     
     .sqr-btn {
@@ -85,17 +91,17 @@
     }
     
     #btn-red {
-        padding: 10px 28px;
-        border-radius: 40px;
         background-color: #d7000f;
         color: white;
-        font-size: 17px;
-        font-weight: bold;
         border: 0px;
     }
     
     .btn:hover {
-        background-color: rgba(200, 200, 200, 0.5) !important;
+        background-color: rgba(200, 200, 200, 0.5);
+    }
+    
+    #btn-red:hover {
+        background-color: #e03844;
     }
     
     #test-cont {
@@ -139,8 +145,17 @@
         flex-direction: row;
     }
     
+    .section.two {
+        height: 100vh;
+        width: 100%;
+    }
+    
+    .section.two p {
+        color: white;
+    }
+    
     #text1 {
-        width: 35vw;
+        width: 40vw;
         text-align: left;
         margin-left: 5vw;
         display: flex;
@@ -152,6 +167,29 @@
         font-size: 22px;
         line-height: 1.5em;
         margin-top: 40px;
+        padding-right: 5vw;
+    }
+    
+    #background2 {
+        height: 100vh;
+        width: 100vw;
+        background-image: url("img/smoke.jpg");
+        background-size: cover;
+        background-color: black !important;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    #img2 {
+        width: auto;
+        max-width: 75%;
+        height: auto;
+        max-height: 65%;
+        margin-bottom: 30px;
     }
     
     @media screen and (max-width: 900px) {

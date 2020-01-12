@@ -6,10 +6,11 @@
             setTimeout(function() { slideInProgress = false }, 900);
         }
     }
-    const slideOnScroll = scrollEvent => {
+    const slideOnScroll = () => {
+        event.preventDefault();
         if (slideInProgress === false)
-            if (scrollEvent.deltaY > 0 && currentSection + 1 < sections.length) slide(currentSection + 1);
-            else if (scrollEvent.deltaY < 0 && currentSection > 0) slide(currentSection - 1);
+            if (event.deltaY > 0 && currentSection + 1 < sections.length) slide(currentSection + 1);
+            else if (event.deltaY < 0 && currentSection > 0) slide(currentSection - 1);
     }
     const updateLocations = (forced = false) => {
         sectionLocations = [0];

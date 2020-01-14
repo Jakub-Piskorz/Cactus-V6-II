@@ -1,5 +1,5 @@
-    const slide = (section, forced = false) => {
-        if ((slideInProgress === false || forced === true) && window.innerWidth >= 900) {
+    const slide = (section, attr) => {
+        if ((slideInProgress === false || attr === "forced") && window.innerWidth >= 900) {
             document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
             currentSection = section;
             slideInProgress = true;
@@ -11,17 +11,35 @@
             if (event.deltaY > 0 && currentSection + 1 < sections.length) slide(currentSection + 1);
             else if (event.deltaY < 0 && currentSection > 0) slide(currentSection - 1);
     }
-    const updateLocations = (forced = false) => {
+    const updateLocations = attr => {
         sectionLocations = [0];
         sections.forEach((x, i) => sectionLocations.push(sections[i].clientHeight + sectionLocations[i]));
-        slide(currentSection, forced);
+        document.querySelector("#container").style.transition = "none";
+        slide(currentSection, attr);
         document.querySelector("#main").scroll(0, 0);
+        document.querySelector("#container").style.transition = "0.7s ease-in-out";
+    }
+    const switchRwd = () => {
+        if (RWD === true) {
+            if (window.innerWidth >= 900) {
+                RWD = false;
+                document.querySelector("#container").style.marginTop = 0;
+                console.log("switched to false");
+            }
+        } else {
+            if (window.innerWidth < 900) {
+                RWD = true;
+                document.querySelector("#container").style.marginTop = 0;
+                console.log("switched to true");
+            }
+        }
     }
 
     let slideInProgress = false;
     let sections = document.querySelectorAll(".section");
     let sectionLocations = [];
     let currentSection = 0;
+    let RWD = window.innerWidth < 900 ? true : false;
 
     document.querySelector("#btn-purple").addEventListener("click", function() { slide(currentSection + 1) });
     document.querySelector(".back").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
@@ -29,5 +47,8 @@
     document.querySelector(".link").addEventListener("click", function() { window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self") });
     document.querySelector("#btn-red").addEventListener("click", function() { slide(currentSection + 1) });
     window.addEventListener("wheel", slideOnScroll);
-    window.onresize = function() { updateLocations(true) };
+    window.onresize = function() {
+        updateLocations(true);
+        switchRwd();
+    };
     updateLocations();

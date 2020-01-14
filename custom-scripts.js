@@ -23,9 +23,10 @@
     let sectionLocations = [];
     let currentSection = 0;
 
-    document.querySelector("#btn-purple").addEventListener("click", function() { slide(1) });
+    document.querySelector("#btn-purple").addEventListener("click", function() { slide(currentSection + 1) });
     document.querySelector(".back").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
     document.querySelector("#nav").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
+    document.querySelector("#btn-red").addEventListener("click", function() { slide(currentSection + 1) });
     window.addEventListener("wheel", slideOnScroll);
     window.addEventListener("touchmove", slideOnScroll);
     window.onresize = function() { updateLocations(true) };

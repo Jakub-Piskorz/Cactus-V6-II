@@ -52,10 +52,8 @@
         background-color: rgba(255, 255, 255, 0.8);
         border-radius: 100%;
         margin: 20px;
-        font-stretch: extra-condensed;
+        cursor: pointer;
     }
-    
-    #nav::after {}
     
     .section {
         display: inline-flex;
@@ -77,6 +75,7 @@
         transition: 0.13s ease-in-out;
         display: inline-block;
         margin-bottom: 10px;
+        cursor: pointer;
     }
     
     .sqr-btn {
@@ -274,6 +273,9 @@
     }
     
     @media screen and (max-width: 900px) {
+        #main {
+            overflow: scroll;
+        }
         .mobile {
             line-height: 1.4em;
             text-align: center;

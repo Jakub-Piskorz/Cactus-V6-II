@@ -1,6 +1,8 @@
     const slide = (section, attr) => {
         if ((slideInProgress === false || attr === "forced") && window.innerWidth >= 900) {
-            document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
+            if (!RWD) document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
+            else document.querySelector("#main").scrollBy(0, 800);
+            else window.scrollBy = 500;
             currentSection = section;
             slideInProgress = true;
             setTimeout(function() { slideInProgress = false }, 900);
@@ -38,8 +40,10 @@
     let currentSection = 0;
     let RWD = window.innerWidth < 900 ? true : false;
 
-    document.querySelector("#btn-purple").addEventListener("click", event => { slide(currentSection + 1);
-        alert("triggered!"); });
+    document.querySelector("#btn-purple").addEventListener("click", event => {
+        slide(currentSection + 1);
+        alert("triggered!");
+    });
     document.querySelector(".back").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
     document.querySelector("#nav").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
     document.querySelector(".link").addEventListener("click", function() { window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self") });

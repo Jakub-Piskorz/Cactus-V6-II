@@ -15,10 +15,8 @@
     const updateLocations = attr => {
         sectionLocations = [0];
         sections.forEach((x, i) => sectionLocations.push(sections[i].clientHeight + sectionLocations[i]));
-        document.querySelector("#container").style.transition = "none";
         slide(currentSection, attr);
-        document.querySelector("#main").scroll(0, 0);
-        document.querySelector("#container").style.transition = "0.7s ease-in-out";
+        if (!RWD) document.querySelector("#main").scroll(0, 0);
     }
     const switchRwd = () => {
         if (RWD === true && window.innerWidth >= 900) {

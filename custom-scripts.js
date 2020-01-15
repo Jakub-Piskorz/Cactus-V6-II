@@ -1,14 +1,14 @@
     const slide = (section, attr) => {
-        if ((slideInProgress === false || attr === "forced") && window.innerWidth >= 900) {
-            if (!RWD) document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
-            else document.querySelector("#main").scrollBy(0, 800);
+        if ((slideInProgress === false || attr === "forced") && !RWD) {
+            document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
             currentSection = section;
             slideInProgress = true;
             setTimeout(function() { slideInProgress = false }, 900);
-        }
+        } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
     }
+
     const slideOnScroll = () => {
-        if (slideInProgress === false)
+        if (slideInProgress === false && RWD === false)
             if (event.deltaY > 0 && currentSection + 1 < sections.length) slide(currentSection + 1);
             else if (event.deltaY < 0 && currentSection > 0) slide(currentSection - 1);
     }
@@ -21,15 +21,13 @@
         document.querySelector("#container").style.transition = "0.7s ease-in-out";
     }
     const switchRwd = () => {
-        if (!RWD && window.outerWidth >= 900) {
-            RWD = true;
-            document.querySelector("#container").style.marginTop = 0;
-            console.log("switched to false");
-        }
-        if (RWD && window.outerWidth < 900) {
+        if (RWD === true && window.innerWidth >= 900) {
             RWD = false;
             document.querySelector("#container").style.marginTop = 0;
-            console.log("switched to true");
+        }
+        if (RWD === false && window.innerWidth < 900) {
+            RWD = true;
+            document.querySelector("#container").style.marginTop = 0;
         }
     }
 
@@ -39,16 +37,13 @@
     let currentSection = 0;
     let RWD = window.innerWidth < 900 ? true : false;
 
-    document.querySelector("#btn-purple").addEventListener("click", event => {
-        slide(currentSection + 1);
-        alert("triggered!");
-    });
-    document.querySelector(".back").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
-    document.querySelector("#nav").addEventListener("click", function() { window.open("https://digital24.pl", "_self") });
-    document.querySelector(".link").addEventListener("click", function() { window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self") });
-    document.querySelector("#btn-red").addEventListener("click", function() { slide(currentSection + 1) });
+    document.querySelector("#btn-purple").addEventListener("click", event => slide(currentSection + 1, "click"));
+    document.querySelector(".back").addEventListener("click", event => window.open("https://digital24.pl", "_self"));
+    document.querySelector("#nav").addEventListener("click", event => window.open("https://digital24.pl", "_self"));
+    document.querySelector(".link").addEventListener("click", event => window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self"));
+    document.querySelector("#btn-red").addEventListener("click", event => slide(currentSection + 1, "click"));
     window.addEventListener("wheel", slideOnScroll);
-    window.onresize = function() {
+    window.onresize = event => {
         updateLocations(true);
         switchRwd();
     };

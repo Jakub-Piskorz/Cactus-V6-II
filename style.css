@@ -397,9 +397,6 @@
             align-self: center;
             left: initial;
         }
-        .section {
-            height: 1700px;
-        }
         .section.one {
             flex-direction: column;
         }
@@ -445,5 +442,14 @@
         }
         #right3 img {
             width: 60%;
+        }
+    }
+    
+    @media screen and (max-width: 900px) and (max-height: 1000px) {
+        .section {
+            height: 1500px;
+        }
+        .section.zero {
+            height: 650px;
         }
     }

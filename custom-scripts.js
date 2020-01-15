@@ -20,18 +20,15 @@
         document.querySelector("#container").style.transition = "0.7s ease-in-out";
     }
     const switchRwd = () => {
-        if (RWD === true) {
-            if (window.innerWidth >= 900) {
-                RWD = false;
-                document.querySelector("#container").style.marginTop = 0;
-                console.log("switched to false");
-            }
-        } else {
-            if (window.innerWidth < 900) {
-                RWD = true;
-                document.querySelector("#container").style.marginTop = 0;
-                console.log("switched to true");
-            }
+        if (!RWD && window.outerWidth >= 900) {
+            RWD = true;
+            document.querySelector("#container").style.marginTop = 0;
+            console.log("switched to false");
+        }
+        if (RWD && window.outerWidth < 900) {
+            RWD = false;
+            document.querySelector("#container").style.marginTop = 0;
+            console.log("switched to true");
         }
     }
 

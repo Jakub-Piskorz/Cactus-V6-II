@@ -146,6 +146,98 @@
         line-height: 1em;
     }
     
+    .grid_container {
+        width: 83%;
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 50px 50px;
+        margin-bottom: 25px;
+    }
+    
+    .grid_item:hover {
+        border: 1px #d7000f solid !important;
+        box-shadow: 0 0 3px #8d2d2f;
+    }
+    
+    .site h2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: black;
+    }
+    
+    .t .left,
+    .right {
+        width: 100%;
+        box-sizing: border-box;
+        float: left;
+    }
+    
+    .left>div {
+        float: right;
+    }
+    
+    .t .text,
+    .image {
+        box-sizing: border-box;
+        float: left;
+    }
+    
+    .t .image {
+        width: 35%;
+    }
+    
+    .t .text {
+        width: 65%;
+    }
+    
+    .t .image {
+        text-align: center;
+    }
+    
+    .image img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    @media only screen and (max-width: 480px) {
+        .t .image,
+        .t .text {
+            width: 100%;
+        }
+        .grid_container {
+            grid-template-columns: 1fr !important
+        }
+        .baner {
+            display: none !important;
+        }
+        .site h2 {
+            font-size: 22px !important;
+        }
+    }
+    
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .t .image,
+        .t .text {
+            width: 100%;
+        }
+        .grid_container {
+            grid-template-columns: 1fr 1fr !important
+        }
+        .site h2 {
+            font-size: 24px !important;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .grid_container {
+            grid-template-columns: 1fr 1fr 1fr !important
+        }
+        .site h2 {
+            font-size: 28px !important;
+        }
+    }
+    
     .bigger-font {
         font-size: 85px;
         font-weight: bolder;
@@ -191,6 +283,10 @@
     
     .section.three h1 {
         color: #333333;
+    }
+    
+    .section.four {
+        height: 100vh;
     }
     
     #text1 {
@@ -275,6 +371,9 @@
     @media screen and (max-width: 900px) {
         #main {
             overflow: scroll;
+        }
+        .section.four {
+            height: 1000px;
         }
         .mobile {
             line-height: 1.4em;

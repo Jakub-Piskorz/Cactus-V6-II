@@ -397,6 +397,9 @@
             align-self: center;
             left: initial;
         }
+        .section {
+            height: 1700px;
+        }
         .section.one {
             flex-direction: column;
         }

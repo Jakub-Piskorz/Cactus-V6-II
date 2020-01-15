@@ -2,7 +2,6 @@
         if ((slideInProgress === false || attr === "forced") && window.innerWidth >= 900) {
             if (!RWD) document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
             else document.querySelector("#main").scrollBy(0, 800);
-            else window.scrollBy = 500;
             currentSection = section;
             slideInProgress = true;
             setTimeout(function() { slideInProgress = false }, 900);

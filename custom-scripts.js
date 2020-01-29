@@ -8,11 +8,11 @@
         slideMarker("white", "hide");
         if (currentSection !== 0 && currentSection < sectionLocations.length - 1) {
             if (currentSection === 2) {
-                setTimeout(() => { slideMarker("white") }, 2000);
+                setTimeout(() => { slideMarker("white", "show", 2000) }, 10);
             } else {
-                setTimeout(() => { slideMarker("black") }, 2000);
+                setTimeout(() => { slideMarker("black", "show", 2000) }, 10);
             }
-        } else slideMarker("black", "hide");
+        }
     }
 
     const slideOnScroll = () => {
@@ -20,11 +20,11 @@
             if (event.deltaY > 0 && currentSection + 1 < sections.length) slide(currentSection + 1);
             else if (event.deltaY < 0 && currentSection > 0) slide(currentSection - 1);
     }
-    const updateLocations = attr => {
+    const updateLocations = () => {
         sectionLocations = [0];
         sections.forEach((x, i) => sectionLocations.push(sections[i].clientHeight + sectionLocations[i]));
         sectionLocations.pop();
-        slide(currentSection, attr);
+        slide(currentSection);
         if (!RWD) document.querySelector("#main").scroll(0, 0);
     }
     const switchRwd = () => {
@@ -38,28 +38,43 @@
         }
     }
     const slideMarker = (color = "black", toggle = "show", delay = 0) => {
-        if (slideMarkerInProgress) return;
-        slideMarkerInProgress = true;
-        setTimeout(() => {
-            if (toggle === "show") {
-                document.querySelector("#slide-marker").style.left = "50%";
-                document.querySelector("#slide-marker").style.opacity = 1;
-                setTimeout(() => {
-                    document.querySelector("#slide-marker").style.transition = "ease-in-out 0.7s";
-                    document.querySelector("#slide-marker").style.borderColor = color;
-                }, 10);
-                setTimeout(() => { document.querySelector("#slide-marker").style.transition = "" }, 700);
-            } else if (toggle === "hide") {
+        if (toggle === "hide") {
+            document.querySelector("#slide-marker").style.transition = "";
+            setTimeout(() => {
                 document.querySelector("#slide-marker").style.left = "-50%";
                 document.querySelector("#slide-marker").style.opacity = 0;
+            }, 1);
+            return;
+        }
+        let thisCall = slideMarkerCalls;
+        slideMarkerCalls++;
+        console.log(`This call: ${thisCall}, calls: ${slideMarkerCalls}`);
+        setTimeout(() => {
+            if (thisCall + 1 !== slideMarkerCalls) {
+                return;
+            };
+            console.log(`I've toggled marker on call: ${thisCall}. Calls: ${slideMarkerCalls}`);
+            if (toggle === "show" && currentSection !== 0 && currentSection < sectionLocations.length - 1) {
+                document.querySelector("#slide-marker").style.transition = "";
+                document.querySelector("#slide-marker").style.opacity = 0;
+                setTimeout(() => {
+                    document.querySelector("#slide-marker").style.left = "50%";
+                }, 1);
+                setTimeout(() => {
+                    document.querySelector("#slide-marker").style.transition = `ease-in-out 0.7s`;
+                    document.querySelector("#slide-marker").style.opacity = 1;
+                    document.querySelector("#slide-marker").style.borderColor = color;
+                }, 3);
+                setTimeout(() => {
+                    document.querySelector("#slide-marker").style.transition = "";
+                }, 696);
             }
-        }, delay)
-        slideMarkerInProgress = false;
-
+            slideMarkerCalls--;
+        }, delay + 700);
     }
 
     let slideInProgress = false;
-    let slideMarkerInProgress = false;
+    let slideMarkerCalls = 0;
     let sections = document.querySelectorAll(".section");
     let sectionLocations = [];
     let currentSection = 0;
@@ -74,7 +89,7 @@
 
     window.addEventListener("wheel", slideOnScroll);
     window.onresize = event => {
-        updateLocations(true);
+        updateLocations();
         switchRwd();
     };
     updateLocations();

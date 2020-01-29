@@ -73,7 +73,7 @@ nav span {
     color: #d7000f;
     font-size: 16px;
     font-family: tahoma;
-    weight: bolder;
+    font-weight: bolder;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -208,7 +208,7 @@ nav span {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px 30px;
-    margin-bottom: 25px;
+    margin: 0 0 100px;
 }
 
 .grid_item:hover {
@@ -272,7 +272,7 @@ nav span {
     }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 480px) and (max-width: 991px) {
     .t .image,
     .t .text {
         width: 100%;
@@ -282,15 +282,6 @@ nav span {
     }
     .site h2 {
         font-size: 24px !important;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .grid_container {
-        grid-template-columns: 1fr 1fr 1fr !important
-    }
-    .site h2 {
-        font-size: 28px !important;
     }
 }
 
@@ -323,11 +314,6 @@ nav span {
     height: 100vh;
     position: relative;
     flex-direction: row;
-}
-
-.section.two {
-    height: 100vh;
-    width: 100%;
 }
 
 .section.two p {
@@ -377,14 +363,14 @@ nav span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 70px 20px 90px;
 }
 
 #img2 {
     width: auto;
-    max-width: 75%;
+    max-width: 70%;
     height: auto;
-    max-height: 65%;
+    max-height: 60%;
     margin-bottom: 30px;
 }
 
@@ -445,9 +431,6 @@ nav span {
         margin-right: 0 !important;
         margin-left: 0 !important;
     }
-    .section.four {
-        height: 1000px;
-    }
     .mobile {
         line-height: 1.4em;
         text-align: center;
@@ -487,11 +470,7 @@ nav span {
     }
     .section.three {
         flex-direction: column-reverse;
-        padding: 40px 8%;
-        min-height: 950px;
-    }
-    .section.four {
-        min-height: 1000px;
+        padding: 65px 8%;
     }
     #left3 {
         display: flex;
@@ -530,8 +509,19 @@ nav span {
     .section.zero {
         min-height: 100vh;
     }
+    .section.one {
+        min-height: initial;
+    }
+    .section.two {
+        height: initial;
+        min-height: initial;
+    }
+    .section.three {
+        height: initial;
+    }
     .section.four {
-        height: 800px;
+        height: initial;
+        min-height: initial;
     }
     #slide-marker {
         display: none;

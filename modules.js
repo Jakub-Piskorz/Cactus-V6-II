@@ -5,12 +5,12 @@
             slideInProgress = true;
             setTimeout(function() { slideInProgress = false }, 900);
         } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
-        slideMarker("white", "hide");
+        nextSlideButton("white", "hide");
         if (currentSection !== 0 && currentSection < sectionLocations.length - 1) {
             if (currentSection === 2) {
-                setTimeout(() => { slideMarker("white", "show", 2000) }, 10);
+                setTimeout(() => { nextSlideButton("white", "show", 2000) }, 10);
             } else {
-                setTimeout(() => { slideMarker("black", "show", 2000) }, 10);
+                setTimeout(() => { nextSlideButton("black", "show", 2000) }, 10);
             }
         }
     }
@@ -37,7 +37,7 @@
             document.querySelector("#container").style.marginTop = 0;
         }
     }
-    const slideMarker = (color = "black", toggle = "show", delay = 0) => {
+    const nextSlideButton = (color = "black", toggle = "show", delay = 0) => {
         if (toggle === "hide") {
             document.querySelector("#slide-marker").style.transition = "";
             setTimeout(() => {
@@ -46,14 +46,14 @@
             }, 1);
             return;
         }
-        let thisCall = slideMarkerCalls;
-        slideMarkerCalls++;
-        console.log(`This call: ${thisCall}, calls: ${slideMarkerCalls}`);
+        let thisCall = nextSlideButtonCalls;
+        nextSlideButtonCalls++;
+        console.log(`This call: ${thisCall}, calls: ${nextSlideButtonCalls}`);
         setTimeout(() => {
-            if (thisCall + 1 !== slideMarkerCalls) {
+            if (thisCall + 1 !== nextSlideButtonCalls) {
                 return;
             };
-            console.log(`I've toggled marker on call: ${thisCall}. Calls: ${slideMarkerCalls}`);
+            console.log(`I've toggled marker on call: ${thisCall}. Calls: ${nextSlideButtonCalls}`);
             if (toggle === "show" && currentSection !== 0 && currentSection < sectionLocations.length - 1) {
                 document.querySelector("#slide-marker").style.transition = "";
                 document.querySelector("#slide-marker").style.opacity = 0;
@@ -69,12 +69,12 @@
                     document.querySelector("#slide-marker").style.transition = "";
                 }, 696);
             }
-            slideMarkerCalls--;
+            nextSlideButtonCalls--;
         }, delay + 700);
     }
 
     let slideInProgress = false;
-    let slideMarkerCalls = 0;
+    let nextSlideButtonCalls = 0;
     let sections = document.querySelectorAll(".section");
     let sectionLocations = [];
     let currentSection = 0;

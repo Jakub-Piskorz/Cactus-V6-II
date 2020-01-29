@@ -503,4 +503,7 @@ img {
     #nav {
         display: initial;
     }
+    #slide-marker {
+        display: none;
+    }
 }

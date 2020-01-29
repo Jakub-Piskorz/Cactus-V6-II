@@ -107,6 +107,7 @@ nav span {
     left: 50%;
     transform: translate(-50%) rotate(-45deg);
     padding: 15px;
+    cursor: pointer;
 }
 
 .section {

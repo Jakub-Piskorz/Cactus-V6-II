@@ -13,17 +13,20 @@
 </head>
 
 <body>
-    <div id="nav">
-        <a href="https://digital24.pl">Digital24.pl</a>
-        <a>Wstęp</a>
-        <a>O wyzwalaczu</a>
-        <a></a>
-        <a></a>
-    </div>
+    <nav id="nav">
+        <a href="https://digital24.pl">DIGITAL24.PL</a>
+        <span>
+        <a onclick="slide(0)">WSTĘP</a>
+        <a onclick="slide(1)">O WYZWALACZU</a>
+        <a onclick="slide(2)">X-TTL</a>
+        <a onclick="slide(3)">JAK DZIAŁA</a>
+        <a onclick="slide(4)">KUP TERAZ</a>
+        </span>
+    </nav>
     <div id="slide-marker"></div>
     <div id="main">
         <div id="container">
-            <section class="section zero">
+            <section class="section zero" id="zero">
                 <p style="font-size: 24px; margin-bottom: 7px;">Marzysz o wyzwalaniu wszystkich lamp</p>
                 <p style="font-weight: bolder; margin: 0 0 18px;" class="big-font">JEDNYM WYZWALACZEM?</p>
                 <div style="display: flex; justify-content: space-around; width: 300px; margin-bottom: 2vh;">
@@ -32,7 +35,7 @@
                 </div>
             </section>
 
-            <section class="section one">
+            <section class="section one" id="one">
                 <div class="light-purple ignore" id="background1"></div>
                 <img src="img/cactus-v6-ii.png" id="img1" />
                 <div id="text1">
@@ -48,15 +51,15 @@
                     </div>
                 </div>
             </section>
-            <section class="section two">
+            <section class="section two" id="two">
                 <div id="background2">
                     <img id="img2" src="img/ttl comb.png" />
-                    <p class="big-font" style="margin-bottom: 15px;"><strong>WSPÓŁPRACA TTL Z WIELOMA SYSTEMAMI</strong></p>
+                    <p class="big-font" style="margin-bottom: 15px;"><strong>WSPÓŁPRACA TTL ORAZ HSS Z WIELOMA SYSTEMAMI</strong></p>
                     <p style="color: grey; font-size: 27px; margin-bottom: 0;">Canon | Nikon | Cactus | Pentax | Fujifilm | Olympus</p>
                 </div>
 
             </section>
-            <section class="section three">
+            <section class="section three" id="three">
                 <div id="left3">
                     <h1 class="bigger-font">Jak to działa?</h1>
                     <p class="mobile">HSS (ang. High Speed Sync) to technologia pozwalająca na szybką synchronizację lamp z migawką, dając możliwość bezprzewodowego, błyskawicznego wyzwolenia wszystkich lamp podczas wykonywania zdjęcia. Cactus V6 II pozwoli Ci zsynchronizować
@@ -73,7 +76,7 @@
                 </div>
             </section>
 
-            <section class="section four">
+            <section class="section four" id="four">
                 <h1 class="big-font" style="margin-bottom: 100px;">WYBIERZ SWÓJ WYZWALACZ</h1>
                 <div class="grid_container">
                     <div class="grid_item" style="background-color: white; place-self: start stretch; padding: 12px 7.5% 18px; text-align: center; border: 1px solid #d6d6d6; transition: 0.2s;">

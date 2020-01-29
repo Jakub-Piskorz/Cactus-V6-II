@@ -19,13 +19,20 @@
         if (!RWD) document.querySelector("#main").scroll(0, 0);
     }
     const switchRwd = () => {
-        if (RWD === true && window.innerWidth >= 900) {
+        if (RWD === true && (window.innerWidth >= 900 || window.innerHeight >= 810)) {
             RWD = false;
             document.querySelector("#container").style.marginTop = 0;
         }
-        if (RWD === false && window.innerWidth < 900) {
+        if (RWD === false && (window.innerWidth < 900 || window.innerHeight < 810)) {
             RWD = true;
             document.querySelector("#container").style.marginTop = 0;
+        }
+    }
+    const slideMarker = (color = "black", toggle = "show") => {
+        if (toggle === "show") {
+
+        } else if (toggle === "hide") {
+
         }
     }
 
@@ -36,10 +43,12 @@
     let RWD = window.innerWidth < 900 ? true : false;
 
     document.querySelector("#btn-purple").addEventListener("click", event => slide(currentSection + 1, "click"));
+    document.querySelector("#slide-marker").addEventListener("click", event => slide(currentSection + 1));
     document.querySelector(".back").addEventListener("click", event => window.open("https://digital24.pl", "_self"));
     document.querySelector("#nav").addEventListener("click", event => window.open("https://digital24.pl", "_self"));
     document.querySelector(".link").addEventListener("click", event => window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self"));
     document.querySelector("#btn-red").addEventListener("click", event => slide(currentSection + 1, "click"));
+
     window.addEventListener("wheel", slideOnScroll);
     window.onresize = event => {
         updateLocations(true);

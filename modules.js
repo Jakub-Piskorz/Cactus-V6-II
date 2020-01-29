@@ -7,7 +7,7 @@
             updateNav(section);
         } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
         nextSlideButton("white", "hide");
-        if (currentSection !== 0 && currentSection < sectionLocations.length - 1) {
+        if (currentSection !== 0 && currentSection < sectionLocations.length) {
             if (currentSection === 2) {
                 setTimeout(() => { nextSlideButton("white", "show", 2000) }, 10);
             } else {

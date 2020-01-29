@@ -530,6 +530,9 @@ nav span {
     .section.zero {
         min-height: 100vh;
     }
+    .section.four {
+        height: 800px;
+    }
     #slide-marker {
         display: none;
     }

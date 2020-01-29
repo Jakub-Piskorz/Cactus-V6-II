@@ -495,7 +495,7 @@ img {
 @media screen and (max-width: 900px),
 (max-height: 800px) {
     .section {
-        min-height: 900px !important;
+        min-height: 900px;
     }
     .section.zero {
         height: 100vh;

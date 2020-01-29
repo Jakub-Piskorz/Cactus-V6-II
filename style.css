@@ -498,7 +498,7 @@ img {
         min-height: 900px;
     }
     .section.zero {
-        height: 100vh;
+        min-height: 100vh;
     }
     section.two {
         min-height: 1100px;

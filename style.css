@@ -500,6 +500,9 @@ img {
     .section.zero {
         height: 100vh;
     }
+    section.two {
+        min-height: 1100px;
+    }
     #slide-marker {
         display: none;
     }

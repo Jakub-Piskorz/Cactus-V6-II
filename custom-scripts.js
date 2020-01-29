@@ -5,6 +5,14 @@
             slideInProgress = true;
             setTimeout(function() { slideInProgress = false }, 900);
         } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
+        slideMarker("white", "hide");
+        if (currentSection !== 0 && currentSection < sectionLocations.length - 1) {
+            if (currentSection === 2) {
+                setTimeout(() => { slideMarker("white") }, 2000);
+            } else {
+                setTimeout(() => { slideMarker("black") }, 2000);
+            }
+        } else slideMarker("black", "hide");
     }
 
     const slideOnScroll = () => {
@@ -15,6 +23,7 @@
     const updateLocations = attr => {
         sectionLocations = [0];
         sections.forEach((x, i) => sectionLocations.push(sections[i].clientHeight + sectionLocations[i]));
+        sectionLocations.pop();
         slide(currentSection, attr);
         if (!RWD) document.querySelector("#main").scroll(0, 0);
     }
@@ -28,15 +37,29 @@
             document.querySelector("#container").style.marginTop = 0;
         }
     }
-    const slideMarker = (color = "black", toggle = "show") => {
-        if (toggle === "show") {
+    const slideMarker = (color = "black", toggle = "show", delay = 0) => {
+        if (slideMarkerInProgress) return;
+        slideMarkerInProgress = true;
+        setTimeout(() => {
+            if (toggle === "show") {
+                document.querySelector("#slide-marker").style.left = "50%";
+                document.querySelector("#slide-marker").style.opacity = 1;
+                setTimeout(() => {
+                    document.querySelector("#slide-marker").style.transition = "ease-in-out 0.7s";
+                    document.querySelector("#slide-marker").style.borderColor = color;
+                }, 10);
+                setTimeout(() => { document.querySelector("#slide-marker").style.transition = "" }, 700);
+            } else if (toggle === "hide") {
+                document.querySelector("#slide-marker").style.left = "-50%";
+                document.querySelector("#slide-marker").style.opacity = 0;
+            }
+        }, delay)
+        slideMarkerInProgress = false;
 
-        } else if (toggle === "hide") {
-
-        }
     }
 
     let slideInProgress = false;
+    let slideMarkerInProgress = false;
     let sections = document.querySelectorAll(".section");
     let sectionLocations = [];
     let currentSection = 0;

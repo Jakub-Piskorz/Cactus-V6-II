@@ -337,7 +337,7 @@ img {
 }
 
 #background2 {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-image: url("img/smoke.jpg");
     background-size: cover;
@@ -499,9 +499,6 @@ img {
     }
     .section.zero {
         min-height: 100vh;
-    }
-    section.two {
-        height: 1100px;
     }
     #slide-marker {
         display: none;

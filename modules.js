@@ -21,8 +21,8 @@
     }
     const slideOnScroll = () => {
         if (slideInProgress === false && RWD === false)
-            if (event.deltaY >= 40 && currentSection + 1 < sections.length) slide(currentSection + 1);
-            else if (event.deltaY <= -40 && currentSection > 0) slide(currentSection - 1);
+            if (event.deltaY >= 10 && currentSection + 1 < sections.length) slide(currentSection + 1);
+            else if (event.deltaY <= -10 && currentSection > 0) slide(currentSection - 1);
         console.log(event.deltaY);
     }
     const updateLocations = () => {

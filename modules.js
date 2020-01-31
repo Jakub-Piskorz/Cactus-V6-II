@@ -21,8 +21,9 @@
     }
     const slideOnScroll = () => {
         if (slideInProgress === false && RWD === false)
-            if (event.deltaY > 50 && currentSection + 1 < sections.length) slide(currentSection + 1);
-            else if (event.deltaY < -50 && currentSection > 0) slide(currentSection - 1);
+            if (event.deltaY >= 100 && currentSection + 1 < sections.length) slide(currentSection + 1);
+            else if (event.deltaY <= -100 && currentSection > 0) slide(currentSection - 1);
+        console.log(event.deltaY);
     }
     const updateLocations = () => {
         sectionLocations = [0];
@@ -53,12 +54,10 @@
         }
         let thisCall = nextSlideButtonCalls;
         nextSlideButtonCalls++;
-        console.log(`This call: ${thisCall}, calls: ${nextSlideButtonCalls}`);
         setTimeout(() => {
             if (thisCall + 1 !== nextSlideButtonCalls) {
                 return;
             };
-            console.log(`I've toggled marker on call: ${thisCall}. Calls: ${nextSlideButtonCalls}`);
             if (toggle === "show" && currentSection !== 0 && currentSection < sectionLocations.length - 1) {
                 document.querySelector("#slide-marker").style.transition = "";
                 document.querySelector("#slide-marker").style.opacity = 0;

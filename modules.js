@@ -2,8 +2,10 @@
         if ((slideInProgress === false || attr === "forced") && !RWD) {
             document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
             currentSection = section;
-            slideInProgress = true;
-            setTimeout(function() { slideInProgress = false }, 1500);
+            if (attr !== "forced") {
+                slideInProgress = true;
+                setTimeout(function() { slideInProgress = false }, 1100);
+            }
             updateNav(section);
         } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
     }
@@ -17,11 +19,11 @@
             else if (event.deltaY <= -5 && currentSection > 0) slide(currentSection - 1);
         console.log(event.deltaY);
     }
-    const updateLocations = () => {
+    const updateLocations = (attr) => {
         sectionLocations = [0];
         sections.forEach((x, i) => sectionLocations.push(sections[i].clientHeight + sectionLocations[i]));
         sectionLocations.pop();
-        slide(currentSection);
+        slide(currentSection, attr);
         if (!RWD) document.querySelector("#main").scroll(0, 0);
         updateNav();
     }
@@ -85,4 +87,4 @@
         updateLocations();
         switchRwd();
     };
-    updateLocations();
+    updateLocations("forced");

@@ -1,8 +1,6 @@
-@import url(//db.onlinewebfonts.com/c/cd0381aa3322dff4babd137f03829c8c?family=Tahoma);
 @font-face {
     font-family: "Tahoma";
-    src: url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.eot");
-    src: url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.woff") format("woff"), url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/cd0381aa3322dff4babd137f03829c8c.svg#Tahoma") format("svg");
+    src: url("fonts/Tahoma.woff2");
 }
 
 * {
@@ -26,6 +24,22 @@ body {
     background-color: white;
     font-family: Tahoma;
     height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.center {
+    justify-content: center;
 }
 
 img {
@@ -344,7 +358,9 @@ section.five {
 }
 
 .section.five div {
-    margin: 2px 0;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-size: 14px;
 }
 
 #text1 {
@@ -374,7 +390,7 @@ section.five {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 70px 20px 90px;
+    padding: 90px 20px;
 }
 
 #img2 {
@@ -420,16 +436,44 @@ section.five {
     height: auto;
 }
 
+.div5 {
+    width: 50%;
+    max-width: 500px;
+}
+
+.left5 {
+    display: inline-block;
+    width: 35%;
+    margin-right: 3%;
+}
+
+.right5 {
+    display: inline-block;
+    width: 58%;
+    margin-right: 4%;
+}
+
 @media screen and (max-width: 900px),
 (max-height: 800px) {
     .section {
         height: initial;
+    }
+    .flex.rwd-row {
+        flex-direction: row;
+    }
+    .flex.rwd-column {
+        flex-direction: column;
+    }
+    .flex.rwd-center {
+        align-items: center;
+        max-width: 100%;
     }
     .section.zero {
         min-height: 100vh;
     }
     .section.one {
         flex-direction: column;
+        height: initial;
     }
     .section.two {
         height: initial;
@@ -520,5 +564,9 @@ section.five {
     }
     #right3 img {
         width: 40%;
+    }
+    .div5 {
+        max-width: initial;
+        width: 90%;
     }
 }

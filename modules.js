@@ -3,17 +3,9 @@
             document.querySelector("#container").style.marginTop = `-${sectionLocations[section]}px`;
             currentSection = section;
             slideInProgress = true;
-            setTimeout(function() { slideInProgress = false }, 900);
+            setTimeout(function() { slideInProgress = false }, 1500);
             updateNav(section);
         } else if (attr === "click") document.querySelector("#main").scrollBy(0, 700);
-        nextSlideButton("white", "hide");
-        if (currentSection !== 0 && currentSection < sectionLocations.length) {
-            if (currentSection === 2) {
-                setTimeout(() => { nextSlideButton("white", "show", 2000) }, 10);
-            } else {
-                setTimeout(() => { nextSlideButton("black", "show", 2000) }, 10);
-            }
-        }
     }
     const updateNav = (section = currentSection, primaryColor = "black", restColor = "#d7000f") => {
         for (let n of document.querySelectorAll("nav a")) n.style.color = primaryColor;
@@ -21,8 +13,8 @@
     }
     const slideOnScroll = () => {
         if (slideInProgress === false && RWD === false)
-            if (event.deltaY >= 10 && currentSection + 1 < sections.length) slide(currentSection + 1);
-            else if (event.deltaY <= -10 && currentSection > 0) slide(currentSection - 1);
+            if (event.deltaY >= 5 && currentSection + 1 < sections.length) slide(currentSection + 1);
+            else if (event.deltaY <= -5 && currentSection > 0) slide(currentSection - 1);
         console.log(event.deltaY);
     }
     const updateLocations = () => {
@@ -84,9 +76,9 @@
     let currentSection = 0;
     let RWD = window.innerWidth < 900 ? true : false;
 
-    document.querySelector("#slide-marker").addEventListener("click", event => slide(currentSection + 1));
-    document.querySelector(".link").addEventListener("click", event => window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self"));
-    document.querySelector("#btn-red").addEventListener("click", event => slide(currentSection + 1, "click"));
+    if (document.querySelector("#slide-marker")) document.querySelector("#slide-marker").addEventListener("click", event => slide(currentSection + 1));
+    if (document.querySelector(".link")) document.querySelector(".link").addEventListener("click", event => window.open("https://digital24.pl/wyzwalanie-lamp/cactus-v6-ii-bezprzewodowy-wyzwalacz-do-lamp-blyskowych.html", "_self"));
+    if (document.querySelector("#btn-red")) document.querySelector("#btn-red").addEventListener("click", event => slide(currentSection + 1, "click"));
 
     window.addEventListener("wheel", slideOnScroll);
     window.onresize = event => {

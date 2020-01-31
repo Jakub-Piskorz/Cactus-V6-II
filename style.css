@@ -107,6 +107,19 @@ nav span {
     color: black;
 }
 
+footer {
+    display: flex;
+    width: 100%;
+    background-color: #eeeeee;
+    height: 60px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 #slide-marker {
     position: absolute;
     height: 20px;
@@ -354,7 +367,8 @@ nav span {
 section.five {
     text-align: left;
     align-items: flex-start;
-    padding: 5%;
+    padding: 5% 5% 70px;
+    position: relative;
 }
 
 .section.five div {

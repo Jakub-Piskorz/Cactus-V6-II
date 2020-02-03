@@ -471,6 +471,9 @@ section.five {
 
 @media screen and (max-width: 900px),
 (max-height: 800px) {
+    .grid_container {
+        margin: 0 0 25px;
+    }
     .section {
         height: initial;
     }
@@ -488,6 +491,7 @@ section.five {
         min-height: 100vh;
     }
     .section.one {
+        margin-top: 100px;
         flex-direction: column;
         height: initial;
     }
@@ -497,7 +501,7 @@ section.five {
     .section.three {
         height: initial;
         flex-direction: column-reverse;
-        padding: 65px 8%;
+        padding: 65px 8% 15px;
     }
     .section.three h1 {
         align-self: center;

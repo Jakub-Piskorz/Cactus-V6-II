@@ -572,9 +572,7 @@ section.five {
         width: 100%;
         padding-right: 0;
         justify-content: flex-start;
-    }
-    #left3 h2 {
-        text-align: center;
+        align-items: center;
     }
     #right3 {
         width: 100%;

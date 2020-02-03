@@ -60,7 +60,7 @@ img {
 }
 
 #nav {
-    position: absolute;
+    position: fixed;
     height: 60px;
     width: 100%;
     display: flex;

@@ -35,6 +35,7 @@
         if (RWD === false && (window.innerWidth < 900 || window.innerHeight < 810)) {
             RWD = true;
             document.querySelector("#container").style.marginTop = 0;
+            document.querySelector("#main").scrollTo(0,0);
         }
     }
     const nextSlideButton = (color = "black", toggle = "show", delay = 0) => {
@@ -84,7 +85,7 @@
 
     window.addEventListener("wheel", slideOnScroll);
     window.onresize = event => {
-        updateLocations();
         switchRwd();
+        updateLocations();
     };
     updateLocations("forced");

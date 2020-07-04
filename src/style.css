@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Tahoma";
-    src: url("fonts/Tahoma.woff");
+    src: url("../assets/fonts/Tahoma.woff");
 }
 
 * {
@@ -220,7 +220,7 @@ footer {
     height: 700px;
     display: flex;
     background-color: rgba(0, 0, 0, 0.7);
-    background-image: url("img/smoke.jpg");
+    background-image: url("assets/smoke.jpg");
     background-position: center;
     background-size: cover;
     background-blend-mode: darken;
@@ -397,7 +397,7 @@ section.five {
 #background2 {
     height: 100%;
     width: 100vw;
-    background-image: url("img/smoke.jpg");
+    background-image: url("assets/smoke.jpg");
     background-size: cover;
     background-color: black !important;
     background-repeat: no-repeat;
